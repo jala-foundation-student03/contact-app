@@ -43,7 +43,7 @@ const Home = () => {
     <td>{user.name.first}</td>
     <td>{user.name.last}</td>
     <td>{user.email}</td>
-    <td>{user.location.city}</td>
+    <td>{user.location.city}, {user.location.country}</td>
   </tr>
   );
 
