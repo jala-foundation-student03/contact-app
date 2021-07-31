@@ -1,8 +1,10 @@
 import React from 'react';
 
+import '../../styles/Header.css'
+
 const Header = () => {
   return (
-    <div>
+    <div className="Header">
       <h1>CONTACTS APP</h1>
     </div>
   );

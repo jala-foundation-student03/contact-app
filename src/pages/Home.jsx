@@ -6,6 +6,8 @@ import Search from './components/Search';
 import { useCallback } from 'react';
 import { useMemo } from 'react';
 
+import '../styles/Home.css'
+
 const baseUrl = 'https://randomuser.me/api/?page=1&results=15&seed=abc';
 
 const Home = () => {
@@ -34,11 +36,9 @@ const Home = () => {
 
   console.log(users);
 
-  console.log(users[1]);
-
-  const listUsers = filteredUsers.map((user) => 
+  const listUsers = filteredUsers.map((user, index) => 
   <tr>
-    <td>#</td>
+    <td>{index + 1}</td>
     <td>{user.name.first}{user.name.last}</td>
     <td>{user.name.first}</td>
     <td>{user.name.last}</td>
@@ -48,24 +48,26 @@ const Home = () => {
   );
 
   return (
-    <div>
+    <div className="Home">
       <Header />
       <Search search={search} handleSearch={handleSearch} searchInput={searchInput} />
-      <table className="table table-success table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Username</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          {listUsers}
-        </tbody>
-      </table>
+      <section className="table">
+        <table className="table table-success table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listUsers}
+          </tbody>
+        </table>
+      </section>
     </div>
   );
 }
